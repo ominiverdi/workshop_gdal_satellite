@@ -1,0 +1,228 @@
+#map1,#map {
+    /* height: 180px; */
+    flex: 1;
+    height: 100px;
+    width: 100%;
+  
+  }
+  
+  .mapview {
+    height: 60vh;
+  }
+  
+  
+  main {
+    /* margin-left: 10%;
+      margin-right: 10%;
+      margin-top: 2em; */
+    margin: 0;
+  }
+  
+  .main_img,
+  .itinerary_img,
+  .environment_img {
+    max-width: 100%;
+  }
+  
+  .slider {
+    width: 100%;
+    height: 95vh;
+    overflow: scroll;
+    scroll-snap-type: y mandatory;
+  }
+  
+  .slide {
+    width: 100%;
+    height: 95vh;
+    display: flex;
+    align-items: self-end;
+    justify-content: center;
+    gap: 50px;
+    scroll-snap-align: start;
+    color: white;
+    padding: 1em;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .slide>* {
+    /* Default styles for the flex items */
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+  
+  .slide> :only-child {
+    flex-basis: 100%;
+    flex-grow: 0;
+  }
+  
+  .slide> :first-child:nth-last-child(2),
+  .slide> :first-child:nth-last-child(2)~* {
+    /* Styles when there are exactly two children */
+    flex-basis: 20%;
+    flex-grow: 0;
+  }
+  
+  .slide> :first-child:nth-last-child(2)~* {
+    flex-basis: 80%;
+    font-size: 1.6rem;
+  }
+  
+  
+  .slide p {
+    background-color: rgba(10, 10, 10, .5);
+    margin: 0;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 6px;
+  }
+  
+  .slide img {
+    max-width: 50%;
+  }
+  
+  .poster {
+    width: fit-c;
+    height: 80vh;
+  }
+  
+  .slide1_1 {
+  
+    background: url(../img/aiguamolls.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  
+  .slide1_2 {
+  
+    background: url(../img/aiguamolls_map.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  
+  .slide1_3 {
+  
+    background: url(../img/main_3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  
+  .slide1_4 {
+  
+    background: url(../img/main_4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  
+  .slide2_1 {
+  
+    background: url(../img/itinerary_1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  
+  .slide2_2 {
+  
+    background: url(../img/cortalets.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  
+  .slide2_3 {
+  
+    background: url(../img/mas_de_mata.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  .slide1_5 {
+    padding: 0;
+  }
+  
+  .slide_x {
+    display: flex;
+    flex-direction: column;
+  
+  }
+  
+  /* .slide_x > * {
+       flex-basis: 0;
+      flex-grow: 1;
+    }
+    
+    .slide_x > :only-child {
+      height: 100%;
+    }
+    
+    .slide_x > :first-child:nth-last-child(2),
+    .slide_x > :first-child:nth-last-child(2) ~ * {
+       flex-basis: 30%;
+      flex-grow: 0;
+    }
+    
+    .slide_x > :first-child:nth-last-child(2) ~ * {
+      flex-basis: 70%;
+    } */
+  .itinerario1 a {
+    cursor: pointer;
+    text-decoration: underline !important;
+    color: blue !important
+  }
+  
+  .leaflet-popup-content img {
+    width: fit-content;
+    max-width: 20rem;
+  }
+  
+  .itinerarios {
+    color: darkslategrey;
+    width: 100%;
+  }
+  
+  .itinerarios button,
+  .leaflet-marker-icon button {
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  
+  }
+  
+  .itinerarios p {
+    background-color: transparent;
+    margin: .1em;
+    padding: .1em;
+    font-size: .9rem;
+  }
+  .itinerarios p img {
+    max-height: 1.5rem;
+  }
+  .itinerario1 button {
+    background-color: #264653;
+  }
+  
+  .itinerario2 button {
+    background-color: #2a9d8f
+  }
+  
+  .itinerario3 button {
+    background-color: #8ab17d
+  }
+  
+  .itinerario4 button {
+    background-color: #f4a261
+  }
+  
+  .itinerario5 button {
+    background-color: #e76f51
+  }
+  
+  
+  .page-title strong a{
+    font-size: larger;
+  }
