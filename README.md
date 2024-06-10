@@ -1,35 +1,33 @@
-# workshop_gdal_satellite
-Taller de GDAL con datos satelitales
+# Taller de GDAL con datos satelitales
 
 Url: https://ominiverdi.github.io/workshop_gdal_satellite/web/
 
-# Derechos de los datos utilizado
+# Derechos de los datos utilizados
 • (C) OpenStreetMap http://www.openstreetmap.org/copyright
 * Copernicus, Sentinel-2 https://www.copernicus.eu/es/como/derechos-y-licencias
 
 # Ambiente de trabajo
-* Linea de comando de Linux con GDAL/OGR instalado
+* Línea de comando de Linux con GDAL/OGR instalado
 * QGIS
 
 # Herramientas utilizadas
 
 ## gdalinfo
-gdalinfo is the utility you will use all the time to discover metadata about a raster. 
+gdalinfo es la utilidad que utilizarás todo el tiempo para descubrir metadatos sobre un ráster.
 
 Url : http://gdal.org/1.11/gdalinfo.html
 
 ## gdalwarp
 
-Image reprojection and warping utility.
+Utilidad para reproyección y deformación de imágenes.
 
 Url: https://gdal.org/programs/gdalwarp.html
 
-## gdal_calc
+## gdal_calc
 
-Command line raster calculator with numpy syntax.
-
+Calculadora de ráster en línea de comando con sintaxis de numpy.
 Url: https://gdal.org/programs/gdal_calc.html
 
-# Complete FOSS4G workshop:
+# Taller completo de FOSS4G
 https://download.osgeo.org/gdal/workshop/foss4ge2015/workshop_gdal.pdf
 
