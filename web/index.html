@@ -58,27 +58,102 @@
 
             </div>
             <div class="slide slide1_2">
-                <p>El Parque Natural de Aiguamolls es una reserva de humedales en Cataluña, hogar de diversas aves y rica biodiversidad.</p>
+                <h1>Parque Natural de Aiguamolls </h1>
+
+                <p>El Parque Natural de Aiguamolls es una reserva de humedales en Cataluña, hogar de diversas aves y
+                    rica biodiversidad.</p>
             </div>
-            <div class="slide slide1_3">1
-                <p>El Parque Natural fue creado el 28 de octubre de 1983 mediante la Ley
-                    23/1983
-                    de declaración de parajes naturales de interés nacional y de las reservas integrales zoológicas y
-                    botánicas
-                    de los Aiguamolls del Empordà.</p>
+            <div class="slide slide1_3">
+                <h1>Sentinel-2 y Aiguamolls</h1>
+
+                <p>El parque cabe en el Tile 31TEG.</p>
             </div>
             <div class="slide slide1_4">
-                <p>Además de la figura de protección de Parque Natural, cuenta con la de Reservas Integrales Naturales
-                    (máximo
-                    nivel de protección en la legislación catalana) de les Llaunes -lagunas costeras- , de
-                    los Estanys -marjales
-                    y humedales interiores- y de la Isla de Caramany.</p>
+                <h1>Descarga datos Sentinel-2</h1>
+                <p>Los datos se bajan la <a href="https://dataspace.copernicus.eu/" target+"_blank">web oficial de
+                        Copernicus</a>.
+                    <br><br>Tambien se puede utilizar una API.
+                    <br>
+                    <br>
+                    Descarga manual del tile 31TEG
+                </p>
             </div>
+
             <div class="slide slide1_5">
+                <h1>Visualización de datos</h1>
+                <p>Visualización en QGIS de la banda 8 (NIR) del tile 31TEG
+                </p>
+            </div>
+            <div class="slide slide1_6">
+                <h1>NDVI + clip</h1>
+                <p>Generación del NDVI en QGIS y recorte a la extensión del parque.</p>
+            </div>
+
+            <div class="slide slide2">
+                <h1>GDAL</h1>
+                <p>Biblioteca de software para la lectura y escritura de formatos de datos geoespaciales.</p>
+            </div>
+
+            <div class="slide slide2_1">
+                <h1>GDALinfo</h1>
+                <p>Proporciona información sobre un conjunto de datos raster.</p>
+            </div>
+
+            <div class="slide slide2_2">
+                <h1>GDALinfo JSON</h1>
+                <p><code>gdalinfo $filename -json</code></p>
+            </div>
+
+            <div class="slide slide2_3">
+                <h1>GDALinfo screening</h1>
+                <p><code>gdalinfo $filename -json | jq '.metadata."".CLOUD_COVERAGE_ASSESSMENT'</code></p>
+            </div>
+
+            <div class="slide slide2_4">
+                <h1>GDALinfo - machine testing</h1>
+<pre><p><code>
+cloud_coverage=$(gdalinfo $filename -json | jq -r '.metadata[""].CLOUD_COVERAGE_ASSESSMENT')
+
+if (( $(echo "$cloud_coverage > 1" | bc -l) )); then
+echo    
+echo "too cloudy"
+fi</code></p></pre>
+            </div>
+
+            <div class="slide slide2_5">
+                <h1>GDAL scripting to NDVI</h1>
+<pre><p><code>
+#!/bin/bash
+filename=S2A_MSIL2A_20240605T104031_N0510_R008_T31TEG_20240605T182755.SAFE.zip
+geojson_file=enpe.geojson
+band08_path=$(unzip -l $filename | grep "_B08_10m.jp2" | awk '{print $4}')
+band04_path=$(unzip -l $filename | grep "_B04_10m.jp2" | awk '{print $4}')
+
+gdalwarp -cutline $geojson_file -crop_to_cutline -dstalpha /vsizip/$filename/$band08_path band08_clipped.tif
+gdalwarp -cutline $geojson_file -crop_to_cutline -dstalpha /vsizip/$filename/$band04_path band04_clipped.tif
+
+gdal_calc.py -A band08_clipped.tif -B band04_clipped.tif --outfile=ndvi.tif --calc="(A.astype(float) - B.astype(float)) / (A.astype(float) + B.astype(float))" --type=Float32
+
+rm band08_clipped.tif band04_clipped.tif
+</code></p></pre>
+    </div>
+
+    <div class="slide slide2_6">
+        <h1>GDAL script time</h1>
+<pre><p><code>
+
+    real	0m2.055s
+    user	0m4.815s
+    sys		0m0.319s
+    
+</code></p></pre>
+</div>
+
+            <!-- <div class="slide slide1_5">
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/yV_ZT-nZ4Yc">
                 </iframe>
-            </div>
-            <div class="slide slide2_4 slide_x">
+            </div> -->
+            <!-- <div class="slide slide2_4 slide_x">
                 <div class="itinerarios"><strong>Itinerarios</strong><br>
                     <p><span class="itinerario itinerario1"><button i="1">Itinerario 1</button></span>
                         <img src="img/access_1.jpg"> <small> Desde el Cortalet hasta el mas del Matà</small>
@@ -100,7 +175,7 @@
                             src="img/access_5.jpg"> <small> Entre dos Ríos</small></p>
                 </div>
                 <div id="map1" class="mapview"></div>
-            </div>
+            </div> -->
         </div>
     </main>
 </body>

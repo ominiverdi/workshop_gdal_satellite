@@ -70,17 +70,29 @@
   
   
   .slide p {
-    background-color: rgba(10, 10, 10, .5);
+    background-color: rgba(10, 10, 10, .7);
     margin: 0;
     padding: 1rem;
     width: 100%;
     border-radius: 6px;
+    overflow-y: scroll;
   }
   
   .slide img {
     max-width: 50%;
   }
-  
+  .slide h1 {
+    background-color: rgba(10, 10, 10, .8);
+    margin: 0;
+    padding: 1rem;
+    width: 100%;
+    color: rgba(252, 214, 4, 0.98);
+    border-radius: 6px;
+    text-shadow: 2px 0 #fff,  -1px 1px #000000;
+  }
+  .slide code {
+    color:white
+  }
   .poster {
     width: fit-c;
     height: 80vh;
@@ -104,7 +116,7 @@
   
   .slide1_3 {
   
-    background: url(../img/main_3.jpg);
+    background: url(../img/sentinel2_girona_zone2.png);
     background-repeat: no-repeat;
     background-size: cover;
   
@@ -112,7 +124,29 @@
   
   .slide1_4 {
   
-    background: url(../img/main_4.jpg);
+    background: url(../img/download_tile_31TEG.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  .slide1_5 {
+  
+    background: url(../img/qgis_bands_TEG.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  .slide1_6 {
+  
+    background: url(../img/ndvi_clipped_qgis.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  
+  .slide2 {
+  
+    background: url(../img/GDALLogoColor.png);
     background-repeat: no-repeat;
     background-size: cover;
   
@@ -120,7 +154,7 @@
   
   .slide2_1 {
   
-    background: url(../img/itinerary_1.jpg);
+    background: url(../img/gdalinfo.png);
     background-repeat: no-repeat;
     background-size: cover;
   
@@ -128,19 +162,41 @@
   
   .slide2_2 {
   
-    background: url(../img/cortalets.jpg);
+    background: url(../img/gdalinfo_json.png);
     background-repeat: no-repeat;
     background-size: cover;
   
   }
-  
   .slide2_3 {
   
-    background: url(../img/mas_de_mata.jpg);
+    background: url(../img/gdalinfo_cloud_coverage_value.png);
     background-repeat: no-repeat;
     background-size: cover;
   
   }
+
+  .slide2_4 {
+  
+    background: url(../img/gdalinfo_cloud_coverage_screen.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  .slide2_5 {
+  
+    background: url(../img/ndvi_clipped_bash.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  .slide2_6 {
+  
+    background: url(../img/ndvi_clipped_bash_timing.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+
   .slide1_5 {
     padding: 0;
   }

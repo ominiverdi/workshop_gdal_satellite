@@ -187,3 +187,9 @@ Band 5 Block=2048x1 Type=UInt16, ColorInterp=Undefined
 Description = AVHRR Channel 5: 11.5 micrometers -- 12.5 micrometers
 Min=446.000 Max=803.000
 Minimum=446.000, Maximum=803.000, Mean=550.119, StdDev=61.217
+
+
+
+## Clip data
+
+gdalwarp -of GTiff -cutline /home/orangepi/github/workshop_gdal_satellite/data/enpe.geojson -cl enpe -crop_to_cutline /home/orangepi/Downloads/workshop/ndvi_TEG.tif /home/orangepi/.local/share/QGIS/QGIS3/profiles/default/processing/outputs/ndvi_TEG_clipped.tif
