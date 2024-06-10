@@ -23,6 +23,6 @@ Url: [https://gdal.org/programs/gdalwarp.html](https://gdal.org/programs/gdalwar
 Calculadora de ráster en línea de comando con sintaxis de numpy.
 Url: [https://gdal.org/programs/gdal_calc.html](https://gdal.org/programs/gdal_calc.html)
 
-# Taller completo de FOSS4G
+# Taller completo del FOSS4G
 Url : [https://download.osgeo.org/gdal/workshop/foss4ge2015](https://download.osgeo.org/gdal/workshop/foss4ge2015/workshop_gdal.pdf)
 
