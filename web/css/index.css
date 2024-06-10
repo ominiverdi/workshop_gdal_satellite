@@ -197,6 +197,14 @@
   
   }
 
+  .slide3_2 {
+  
+    background: url(../img/lorenzobecchi_com.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+
   .slide1_5 {
     padding: 0;
   }
