@@ -44,3 +44,7 @@ singularity shell docker://lbecchi/restoration:latest
 
 # GDAL
 apt install gdal-bin gdal-data 
+
+
+# create geopackage from KML
+ogr2ogr -f GPKG output_file.gpkg Sentinel2-Tiling_grid.kml Features
