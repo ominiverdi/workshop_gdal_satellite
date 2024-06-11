@@ -51,7 +51,7 @@
 filename=S2A_MSIL2A_20240605T104031_N0510_R008_T31TEG_20240605T182755.SAFE.zip
 geojson_file=enpe.geojson
 unzip -l $filename
-scl_path=$(unzip -l $filename | grep "_SCL_60m.jp2" | awk '{print $4}')
+scl_path=$(unzip -l $filename | grep "_SCL_20m.jp2" | awk '{print $4}')
 gdal_polygonize.py /vsizip/$filename/$scl_path -f "GeoJSON" scl_polygons.geojson
 </code></p></pre>
             </div>
@@ -75,35 +75,20 @@ ogr2ogr -f "GeoJSON" scl_class_4.geojson scl_polygons.geojson -where "DN=4"
                 <h1>Generar el NDVI de la zona vegetada</h1>
                 <pre><p><code>
 #!/bin/bash
-
 filename=S2A_MSIL2A_20240605T104031_N0510_R008_T31TEG_20240605T182755.SAFE.zip
-
 geojson_file=enpe.geojson
-
 band08_path=$(unzip -l $filename | grep "_B08_10m.jp2$" | awk '{print $4}')
 band04_path=$(unzip -l $filename | grep "_B04_10m.jp2$" | awk '{print $4}')
 scl_path=$(unzip -l $filename | grep "_SCL_20m.jp2$" | awk '{print $4}')
-
-
 gdalwarp -overwrite -cutline $geojson_file -crop_to_cutline -dstalpha /vsizip/$filename/$band08_path band08_clipped.tif
 gdalwarp -overwrite -cutline $geojson_file -crop_to_cutline -dstalpha /vsizip/$filename/$band04_path band04_clipped.tif
 gdalwarp -overwrite -cutline $geojson_file -crop_to_cutline -dstalpha /vsizip/$filename/$scl_path scl_clipped.tif
-
 gdal_calc.py -A band08_clipped.tif -B band04_clipped.tif --outfile=ndvi.tif --calc="((A.astype(float) - B.astype(float)) / (A.astype(float) + B.astype(float)))" --type=Float32
-
-gdal_polygonize.py scl_clipped.tif -f "GeoJSON" scl_polygons.geojson
-
+gdal_polygonize.py scl_clipped.tif -f "GeoJSON" scl_polygons.geojson 
 ogr2ogr -f "GeoJSON" scl_vegetation.geojson scl_polygons.geojson -where "DN=4"
-
 ogr2ogr -f GeoJSON -dialect sqlite -sql "SELECT ST_MakeValid(geometry) AS geometry FROM out" scl_vegetation_fix.geojson scl_vegetation.geojson
-
 gdalwarp -overwrite -cutline scl_vegetation_fix.geojson -crop_to_cutline -dstalpha ndvi.tif ndvi_vegetation.tif
-
-gdalinfo -stats ndvi_vegetation.tif
-
- 
-                    
-                                            </code></p></pre>
+gdalinfo -stats ndvi_vegetation.tif</code></p></pre>
             </div>
             <!--<div class="slide slide4_6">
                 <h1>NDVI + clip</h1>
