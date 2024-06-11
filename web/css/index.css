@@ -144,7 +144,7 @@
   
   }
   
-  .slide2 {
+  .slide2,.slide4_1 {
   
     background: url(../img/GDALLogoColor.png);
     background-repeat: no-repeat;
@@ -197,6 +197,21 @@
   
   }
 
+  .slide4_2 {
+    background: url(../img/scl_all_classes.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .slide4_3 {
+    background: url(../img/scl_classification.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .slide4_4 {
+    background: url(../img/scl_vegetated.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   .slide3_2 {
   
     background: url(../img/lorenzobecchi_com.png);
