@@ -17,20 +17,32 @@
     <link rel="stylesheet" href="css/index.css" type="text/css">
     <script src="libs/jquery/jquery.min.js"></script>
     <script async src="libs/bootstrap/js/bootstrap.min.js"></script>
-    <!-- <script src="libs/leaflet/leaflet.js"></script> -->
-    <script async src="js/index.js"></script>
-    <!-- <script async src="libs/leaflet/leaflet-pattern.js"></script>
-<script async src="libs/leaflet/leaflet.textpath.js"></script> -->
+     <script async src="js/index.js"></script>
+ 
 </head>
 
 <body>
-    <header class="w-100 p-2 mb-0  text-white bg-dark">
-        <div class="row">
-            <div class="col  align-self-center page-title">
-                <a href="index.html" class=" text-white ">Conceptos básicos de GDAL/OGR para el procesamiento de
+    <header class="w-100 p-1 mb-0  text-white bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+
+                <a href="index.html" class=" text-white ">GDAL/OGR y
                     imágenes satelitales </a>
-            </div>
-        </div>
+                    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon text-white"></span>
+                      </button>
+             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                  <a class="nav-link  " href="#">GDAL</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="ogr.html">OGR</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="extra.html">Extra</a>
+                </li> 
+              </ul></div>
+      </nav>
     </header>
     <div class=" indexheader"></div>
     <main class="bg-white">
@@ -148,63 +160,7 @@ rm band08_clipped.tif band04_clipped.tif
     
 </code></p></pre>
 </div>
-<!-- <div class="slide slide3">
-    <video width="100%" height="100%" controls>
-        <source src="video/RestoreMetrics.mp4" type="video/mp4">
-        <source src="RestoreMetrics.mp4" type="video/ogg">
-      Your browser does not support the video tag.
-      </video>
-</div>
-
-<div class="slide slide3_1">
-    <h1>Logica del report automatico</h1>
-    <pre> <p><code>
-* Preguntar a Copernicus si hay archivos en el intervalo de fechas.
-* Descargar el SCL para cada día disponible.
-* Medir si hay suficientes datos válidos para cada día.
-* Calcular el NDVI máximo de cada día.
-* Escoger el día con el máximo NDVI para el mes inicial y final.
-* Bajar los archivos en alta resolución para todas las bandas necesarias para nuestros índices.
-* Juntar las piezas en caso de que haya más de un granule involucrado.
-* Calcular NDVI, NDMI, BSI para la zona requerida.
-* Generar los tiles para la interfaz web y publicarlos en la nube.
-* Crear un zip con todos los archivos generados y poblicarlo en la nube.
-    </code></p></pre>
-</div>
-
-<div class="slide slide3_2">
-    <h1>Gracias!</h1>
-      <p>email:  info@lorenzobecchi.com<br>
-    web:  <a href="https://lorenzobecchi.com">lorenzobecchi.com</a></p> 
-</div> -->
-
-            <!-- <div class="slide slide1_5">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/yV_ZT-nZ4Yc">
-                </iframe>
-            </div> -->
-            <!-- <div class="slide slide2_4 slide_x">
-                <div class="itinerarios"><strong>Itinerarios</strong><br>
-                    <p><span class="itinerario itinerario1"><button i="1">Itinerario 1</button></span>
-                        <img src="img/access_1.jpg"> <small> Desde el Cortalet hasta el mas del Matà</small>
-                    </p>
-                    <p><span class="itinerario itinerario2"><button i="2">Itinerario 2</button></span>
-                        <img src="img/access_2.jpg"> <small> Del mas del Matá a las lagunas
-                            costeras o llaunes</small>
-                    </p>
-                    <p><span class="itinerario itinerario3"><button i="3">Itinerario 3</button></span> <img
-                            src="img/access_3.jpg"> <small> Ruta alrededor de la Reserva
-                            Integral de las
-                            lagunas costeras</small>
-                    </p>
-                    <p> <span class="itinerario itinerario4"><button i="4">Itinerario 4</button></span> <img
-                            src="img/access_4.jpg"> <small> Desde el Cortalet a los
-                            estanques Europa</small>
-                    </p>
-                    <p> <span class="itinerario itinerario5"><button i="5">Itinerario 5</button></span> <img
-                            src="img/access_5.jpg"> <small> Entre dos Ríos</small></p>
-                </div>
-                <div id="map1" class="mapview"></div>
-            </div> -->
+ 
         </div>
     </main>
 </body>

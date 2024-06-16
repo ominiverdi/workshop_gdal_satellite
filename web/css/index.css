@@ -90,6 +90,15 @@
     border-radius: 6px;
     text-shadow: 2px 0 #fff,  -1px 1px #000000;
   }
+  @media (max-width:960px) { 
+    .slide h1 {
+      font-size: 1.2em;
+    }
+    .slide p,.slide code{
+      font-size: 0.9em!important;
+    }
+  } 
+  
   .slide code {
     color:white
   }
